@@ -1,0 +1,199 @@
+2023-06-07T15:25:03.571-00:00 [node.config.validation.config_validation_success] the node configuration has been successfully validated.
+2023-06-07T15:25:03.571-00:00 [node.identity.generating_identity] generating an identity file
+2023-06-07T15:25:05.732-00:00 [node.identity.identity_generated] identity file generated
+2023-06-07T15:25:05.732-00:00 [node.main.starting_node] starting the Tezos node v0.0+dev (c2c72886)
+2023-06-07T15:25:05.920-00:00 [node.main.disabled_discovery_addr] disabled local peer discovery
+2023-06-07T15:25:05.920-00:00 [node.p2p-initialization] p2p initialization: bootstrapping
+2023-06-07T15:25:05.925-00:00 [node.p2p-initialization] p2p initialization: p2p_maintenance_started
+2023-06-07T15:25:05.925-00:00 [external_block_validator.proc_initialized] external validation initialized
+2023-06-07T15:25:06.142-00:00 [external_block_validator.proc_validator_started] block validator process started with pid 34
+2023-06-07T15:25:06.143-00:00 [node.context.disk.init_context] initializing context (readonly: true, index_log_size: 2500000, lru_size: 5000)
+2023-06-07T15:25:06.144-00:00 [external_validator.commit_genesis_request] committing genesis block BLockGenesisGenesisGenesisGenesisGenesisf79b5d1CoW2
+2023-06-07T15:25:06.151-00:00 [node.storage_consistency.context_already_consistent] no corruption detected while scanning the context.
+2023-06-07T15:25:06.170-00:00 [node.protocol_store.store_successful_store] protocol PsddFKi32cMJ2qPjf43Qv5GDWLDPZb3T3bF6fLKiF5HtvHNU7aP successfully stored
+2023-06-07T15:25:06.212-00:00 [node.protocol_store.store_successful_store] protocol PtEdoTezd3RHSC31mpxxo1npxFjoWWcFgQtxapi51Z8TLu6v6Uq successfully stored
+2023-06-07T15:25:06.225-00:00 [node.protocol_store.store_successful_store] protocol Pt24m4xiPbLDhVgVfABUjirbmda3yohdN82Sp9FeuAXJ4eV9otd successfully stored
+2023-06-07T15:25:06.243-00:00 [node.protocol_store.store_successful_store] protocol PtCJ7pwoxe8JasnHY8YonnLYjcVHmhiARPJvqcC6VfHT5s8k8sY successfully stored
+2023-06-07T15:25:06.263-00:00 [node.protocol_store.store_successful_store] protocol PtJakart2xVj7pYXJBXrqHgd82rdkLey5ZeeGwDgPp9rhQUbSqY successfully stored
+2023-06-07T15:25:06.299-00:00 [node.protocol_store.store_successful_store] protocol PtMumbai2TmsJHNGRkD8v8YDbtao7BLUC3wjASn1inAKLFCjaH1 successfully stored
+2023-06-07T15:25:06.314-00:00 [node.protocol_store.store_successful_store] protocol PtEdo2ZkT9oKpimTah6x2embF25oss54njMuPzkJTEi5RqfdZFA successfully stored
+2023-06-07T15:25:06.325-00:00 [node.protocol_store.store_successful_store] protocol PsFLorenaUUuikDWvMDr6fGBRG8kt3e3D3fHoXK1j1BFRxeSH4i successfully stored
+2023-06-07T15:25:06.330-00:00 [node.protocol_store.store_successful_store] protocol PsBabyM1eUXZseaJdmXFApDSBqj8YBfwELoxZHHW77EMcAbbwAS successfully stored
+2023-06-07T15:25:06.341-00:00 [node.protocol_store.store_successful_store] protocol PsBABY5HQTSkA4297zNHfsZNKtxULfL18y95qb3m53QJiXGmrbU successfully stored
+2023-06-07T15:25:06.358-00:00 [node.protocol_store.store_successful_store] protocol PtHangz2aRngywmSRGGvrcTyMbbdpWdpFKuS4uMWxg2RaH9i1qx successfully stored
+2023-06-07T15:25:06.359-00:00 [node.protocol_store.store_successful_store] protocol Ps9mPmXaRzmzk35gbAYNCAw6UXdE2qoABTHbN2oEEc1qM7CwT9P successfully stored
+2023-06-07T15:25:06.364-00:00 [node.protocol_store.store_successful_store] protocol PsYLVpVvgbLhAhoqAkMFUo6gudkJ9weNXhUYCiLDzcUpFpkk8Wt successfully stored
+2023-06-07T15:25:06.394-00:00 [node.protocol_store.store_successful_store] protocol PtKathmankSpLLDALzWw7CGD2j2MtyveTwboEYokqUCP4a1LxMg successfully stored
+2023-06-07T15:25:06.426-00:00 [node.protocol_store.store_successful_store] protocol PtNairobiyssHuh87hEhfVBGCVrK3WnS8Z2FT4ymB5tAa4r1nQf successfully stored
+2023-06-07T15:25:06.460-00:00 [node.protocol_store.store_successful_store] protocol PtLimaPtLMwfNinJi9rCfDPWea8dFgTZ1MeJ9f1m2SRic6ayiwW successfully stored
+2023-06-07T15:25:06.463-00:00 [node.protocol_store.store_successful_store] protocol PsCARTHAGazKbHtnKfLzQg3kms52kSRpgnDY982a9oYsSXRLQEb successfully stored
+2023-06-07T15:25:06.467-00:00 [node.protocol_store.store_successful_store] protocol PsDELPH1Kxsxt8f9eWbxQeRxkjfbxoqM52jvs5Y5fBxWWh4ifpo successfully stored
+2023-06-07T15:25:06.490-00:00 [node.protocol_store.store_successful_store] protocol Psithaca2MLRFYargivpo7YvUr7wUDqyxrdhC5CQq78mRvimz6A successfully stored
+2023-06-07T15:25:06.496-00:00 [node.protocol_store.store_successful_store] protocol PtGRANADsDU8R9daYKAgWnQYAJ64omN1o3KMGVCykShA97vQbvV successfully stored
+2023-06-07T15:25:06.496-00:00 [validator.block.started_validator-block] worker started
+2023-06-07T15:25:06.496-00:00 [node.validator.activate_chain] activate chain NetXdQprcVkpaWU
+2023-06-07T15:25:06.496-00:00 [validator.chain.started_for_validator-chain] worker started for NetXdQprcVkpa
+2023-06-07T15:25:06.497-00:00 [p2p.activate_layer] activate P2P layer
+2023-06-07T15:25:06.497-00:00 [p2p.activate_network] activate id ids6xbiAURp4cdF723jew5qFLJXuPq
+2023-06-07T15:25:06.497-00:00 [validator.chain.bootstrapped] chain is bootstrapped
+2023-06-07T15:25:06.497-00:00 [validator.chain.synchronisation_status] synchronisation status: synced
+2023-06-07T15:25:06.497-00:00 [validator.chain.prevalidator_filter_not_found] no prevalidator filter found for protocol ProtoGenesisGenesisGenesisGenesisGenesisGenesk612im
+2023-06-07T15:25:06.497-00:00 [prevalidator.started_for_prevalidator] worker started for NetXdQprcVkpa:ProtoGenesis
+2023-06-07T15:25:06.497-00:00 [node.main.starting_rpc_server] starting RPC server on ::ffff:127.0.0.1:18731 (acl = AllowAll)
+2023-06-07T15:25:06.498-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] Server started (agent: OCaml-Resto)
+2023-06-07T15:25:06.498-00:00 [node.main.node_is_ready] the Tezos node is now running
+2023-06-07T15:26:00.757-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (1) received request /version
+2023-06-07T15:26:00.758-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (2) received request /chains/main/blocks/head/protocols
+2023-06-07T15:26:00.759-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (3) received request /chains/main/blocks/head/metadata
+2023-06-07T15:27:44.070-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (4) received request /version
+2023-06-07T15:27:44.071-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (5) received request /chains/main/blocks/head/protocols
+2023-06-07T15:27:54.690-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (6) received request /version
+2023-06-07T15:27:54.690-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (7) received request /chains/main/blocks/head/protocols
+2023-06-07T15:28:27.482-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (8) received request /version
+2023-06-07T15:28:27.482-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (9) received request /chains/main/blocks/genesis/protocols
+2023-06-07T15:30:15.760-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (10) received request /version
+2023-06-07T15:30:15.761-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (11) received request /chains/main/blocks/genesis/protocols
+2023-06-07T15:30:15.765-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (12) received request /chains/main/blocks/genesis/helpers/preapply/block?timestamp=1686151815
+2023-06-07T15:30:15.774-00:00 [validator.block.preapplication_failed] pre-application of block at level 1 failed (Request pushed on 2023-06-07T15:30:15.765-00:00, treated in 3.541us, completed in 8.503ms): 
+Invalid protocol_parameters: At /liquidity_baking_toggle_ema_threshold, unexpected number instead of string 
+{ "bootstrap_accounts":
+    [ [ "edpkuBknW28nW72KG6RoHtYW7p12T6GKc7nAbwYX5m8Wd9sDVC9yav",
+        "4000000000000" ],
+      [ "edpktzNbDAUjUk697W7gYg2CRuBQjyPxbEg8dLccYYwKSKvkPvjtV9",
+        "4000000000000" ],
+      [ "edpkuTXkJDGcFd5nh6VvMz8phXxU3Bi7h6hqgywNFi1vZTfQNnS1RV",
+        "4000000000000" ],
+      [ "edpkuFrRoDSEbJYgxRtLx2ps82UdaYc1WwfS9sE11yhauZt5DgCHbU",
+        "4000000000000" ],
+      [ "edpkv8EUUH68jmo3f7Um5PezmfGrRF24gnfLpH3sVNwJnV5bVCxL2n",
+        "4000000000000" ] ], "preserved_cycles": 2, "blocks_per_cycle": 8,
+  "blocks_per_commitment": 4, "nonce_revelation_threshold": 4,
+  "blocks_per_stake_snapshot": 4, "cycles_per_voting_period": 8,
+  "hard_gas_limit_per_operation": "1040000",
+  "hard_gas_limit_per_block": "2600000",
+  "proof_of_work_threshold": "4611686018427387903",
+  "minimal_stake": "6000000000", "vdf_difficulty": "50000",
+  "origination_size": 257,
+  "reward_weights":
+    { "base_total_rewards_per_minute": "85007812",
+      "baking_reward_fixed_portion_weight": 5120,
+      "baking_reward_bonus_weight": 5120, "endorsing_reward_weight": 10240,
+      "liquidity_baking_subsidy_weight": 1280,
+      "seed_nonce_revelation_tip_weight": 1, "vdf_revelation_tip_weight": 1 },
+  "cost_per_byte": "250", "hard_storage_limit_per_operation": "60000",
+  "quorum_min": 2000, "quorum_max": 7000, "min_proposal_quorum": 500,
+  "liquidity_baking_toggle_ema_threshold": 1000000000,
+  "max_operations_time_to_live": 240, "minimal_block_delay": "1",
+  "delay_increment_per_round": "1", "consensus_committee_size": 256,
+  "consensus_threshold": 0,
+  "minimal_participation_ratio": { "numerator": 2, "denominator": 3 },
+  "max_slashing_period": 2, "delegation_over_baking_limit": 19,
+  "percentage_of_frozen_deposits_slashed_per_double_baking": 11,
+  "percentage_of_frozen_deposits_slashed_per_double_endorsement": 50,
+  "cache_script_size": 100000000, "cache_stake_distribution_cycles": 8,
+  "cache_sampler_state_cycles": 8, "tx_rollup_enable": false,
+  "tx_rollup_origination_size": 4000,
+  "tx_rollup_hard_size_limit_per_inbox": 500000,
+  "tx_rollup_hard_size_limit_per_message": 5000,
+  "tx_rollup_max_withdrawals_per_batch": 15,
+  "tx_rollup_commitment_bond": "10000000000",
+  "tx_rollup_finality_period": 40000, "tx_rollup_withdraw_period": 40000,
+  "tx_rollup_max_inboxes_count": 40100,
+  "tx_rollup_max_messages_per_inbox": 1010,
+  "tx_rollup_max_commitments_count": 80100,
+  "tx_rollup_cost_per_byte_ema_factor": 120,
+  "tx_rollup_max_ticket_payload_size": 2048,
+  "tx_rollup_rejection_max_proof_size": 30000,
+  "tx_rollup_sunset_level": 3473409,
+  "dal_parametric":
+    { "feature_enable": false, "number_of_slots": 16, "attestation_lag": 1,
+      "attestation_threshold": 50, "blocks_per_epoch": 2,
+      "redundancy_factor": 8, "page_size": 128, "slot_size": 32768,
+      "number_of_shards": 64 }, "smart_rollup_enable": true,
+  "smart_rollup_arith_pvm_enable": false,
+  "smart_rollup_origination_size": 6314,
+  "smart_rollup_challenge_window_in_blocks": 80640,
+  "smart_rollup_stake_amount": "10000000000",
+  "smart_rollup_commitment_period_in_blocks": 60,
+  "smart_rollup_max_lookahead_in_blocks": 172800,
+  "smart_rollup_max_active_outbox_levels": 80640,
+  "smart_rollup_max_outbox_messages_per_level": 100,
+  "smart_rollup_number_of_sections_in_dissection": 32,
+  "smart_rollup_timeout_period_in_blocks": 40320,
+  "smart_rollup_max_number_of_cemented_commitments": 5,
+  "smart_rollup_max_number_of_parallel_games": 32, "zk_rollup_enable": false,
+  "zk_rollup_origination_size": 4000, "zk_rollup_min_pending_to_process": 10,
+  "adaptive_inflation_enable": false, "staking_over_baking_limit": 5,
+  "max_costaking_baker_count": 5 }
+2023-06-07T15:30:15.774-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (12) response code: 500
+2023-06-07T15:30:15.774-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (12) response body: [{"kind":"temporary","id":"failure","msg":"Invalid protocol_parameters: At /liquidity_baking_toggle_ema_threshold, unexpected number instead of string \n{ \"bootstrap_accounts\":\n    [ [ \"edpkuBknW28nW72KG6RoHtYW7p12T6GKc7nAbwYX5m8Wd9sDVC9yav\",\n        \"4000000000000\" ],\n      [ \"edpktzNbDAUjUk697W7gYg2CRuBQjyPxbEg8dLccYYwKSKvkPvjtV9\",\n        \"4000000000000\" ],\n      [ \"edpkuTXkJDGcFd5nh6VvMz8phXxU3Bi7h6hqgywNFi1vZTfQNnS1RV\",\n        \"4000000000000\" ],\n      [ \"edpkuFrRoDSEbJYgxRtLx2ps82UdaYc1WwfS9sE11yhauZt5DgCHbU\",\n        \"4000000000000\" ],\n      [ \"edpkv8EUUH68jmo3f7Um5PezmfGrRF24gnfLpH3sVNwJnV5bVCxL2n\",\n        \"4000000000000\" ] ], \"preserved_cycles\": 2, \"blocks_per_cycle\": 8,\n  \"blocks_per_commitment\": 4, \"nonce_revelation_threshold\": 4,\n  \"blocks_per_stake_snapshot\": 4, \"cycles_per_voting_period\": 8,\n  \"hard_gas_limit_per_operation\": \"1040000\",\n  \"hard_gas_limit_per_block\": \"2600000\",\n  \"proof_of_work_threshold\": \"4611686018427387903\",\n  \"minimal_stake\": \"6000000000\", \"vdf_difficulty\": \"50000\",\n  \"origination_size\": 257,\n  \"reward_weights\":\n    { \"base_total_rewards_per_minute\": \"85007812\",\n      \"baking_reward_fixed_portion_weight\": 5120,\n      \"baking_reward_bonus_weight\": 5120, \"endorsing_reward_weight\": 10240,\n      \"liquidity_baking_subsidy_weight\": 1280,\n      \"seed_nonce_revelation_tip_weight\": 1, \"vdf_revelation_tip_weight\": 1 },\n  \"cost_per_byte\": \"250\", \"hard_storage_limit_per_operation\": \"60000\",\n  \"quorum_min\": 2000, \"quorum_max\": 7000, \"min_proposal_quorum\": 500,\n  \"liquidity_baking_toggle_ema_threshold\": 1000000000,\n  \"max_operations_time_to_live\": 240, \"minimal_block_delay\": \"1\",\n  \"delay_increment_per_round\": \"1\", \"consensus_committee_size\": 256,\n  \"consensus_threshold\": 0,\n  \"minimal_participation_ratio\": { \"numerator\": 2, \"denominator\": 3 },\n  \"max_slashing_period\": 2, \"delegation_over_baking_limit\": 19,\n  \"percentage_of_frozen_deposits_slashed_per_double_baking\": 11,\n  \"percentage_of_frozen_deposits_slashed_per_double_endorsement\": 50,\n  \"cache_script_size\": 100000000, \"cache_stake_distribution_cycles\": 8,\n  \"cache_sampler_state_cycles\": 8, \"tx_rollup_enable\": false,\n  \"tx_rollup_origination_size\": 4000,\n  \"tx_rollup_hard_size_limit_per_inbox\": 500000,\n  \"tx_rollup_hard_size_limit_per_message\": 5000,\n  \"tx_rollup_max_withdrawals_per_batch\": 15,\n  \"tx_rollup_commitment_bond\": \"10000000000\",\n  \"tx_rollup_finality_period\": 40000, \"tx_rollup_withdraw_period\": 40000,\n  \"tx_rollup_max_inboxes_count\": 40100,\n  \"tx_rollup_max_messages_per_inbox\": 1010,\n  \"tx_rollup_max_commitments_count\": 80100,\n  \"tx_rollup_cost_per_byte_ema_factor\": 120,\n  \"tx_rollup_max_ticket_payload_size\": 2048,\n  \"tx_rollup_rejection_max_proof_size\": 30000,\n  \"tx_rollup_sunset_level\": 3473409,\n  \"dal_parametric\":\n    { \"feature_enable\": false, \"number_of_slots\": 16, \"attestation_lag\": 1,\n      \"attestation_threshold\": 50, \"blocks_per_epoch\": 2,\n      \"redundancy_factor\": 8, \"page_size\": 128, \"slot_size\": 32768,\n      \"number_of_shards\": 64 }, \"smart_rollup_enable\": true,\n  \"smart_rollup_arith_pvm_enable\": false,\n  \"smart_rollup_origination_size\": 6314,\n  \"smart_rollup_challenge_window_in_blocks\": 80640,\n  \"smart_rollup_stake_amount\": \"10000000000\",\n  \"smart_rollup_commitment_period_in_blocks\": 60,\n  \"smart_rollup_max_lookahead_in_blocks\": 172800,\n  \"smart_rollup_max_active_outbox_levels\": 80640,\n  \"smart_rollup_max_outbox_messages_per_level\": 100,\n  \"smart_rollup_number_of_sections_in_dissection\": 32,\n  \"smart_rollup_timeout_period_in_blocks\": 40320,\n  \"smart_rollup_max_number_of_cemented_commitments\": 5,\n  \"smart_rollup_max_number_of_parallel_games\": 32, \"zk_rollup_enable\": false,\n  \"zk_rollup_origination_size\": 4000, \"zk_rollup_min_pending_to_process\": 10,\n  \"adaptive_inflation_enable\": false, \"staking_over_baking_limit\": 5,\n  \"max_costaking_baker_count\": 5 }"}]
+
+2023-06-07T15:31:06.707-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (13) received request /version
+2023-06-07T15:31:06.707-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (14) received request /chains/main/blocks/genesis/protocols
+2023-06-07T15:31:06.711-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (15) received request /chains/main/blocks/genesis/helpers/preapply/block?timestamp=1686151866
+2023-06-07T15:31:06.712-00:00 [external_block_validator.proc_status] process terminated abnormally with exit code 1
+2023-06-07T15:31:06.920-00:00 [external_block_validator.proc_validator_started] block validator process started with pid 82
+2023-06-07T15:31:06.923-00:00 [validation.new_protocol_initialisation] initializing protocol ProtoALphaAL...
+2023-06-07T15:31:06.923-00:00 [validator.block.preapplication_success] block at level 1 successfully pre-applied in 212ms
+2023-06-07T15:31:06.924-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (16) received request /chains/main/chain_id
+2023-06-07T15:31:06.925-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (17) received request /injection/block
+2023-06-07T15:31:06.926-00:00 [external_validator.precheck_request] prechecking block BLsfnvZZDZPxvQxnQZZ8M2Zyd7TmYHXH6GZYJjv2hVjBFCXpanM
+2023-06-07T15:31:06.926-00:00 [validator.block.prechecked_block] prechecked block BLsfnvZZDZPxvQxnQZZ8M2Zyd7TmYHXH6GZYJjv2hVjBFCXpanM
+2023-06-07T15:31:06.926-00:00 [node.store.store_validated_block] validated block BLsfnvZZDZPxvQxnQZZ8M2Zyd7TmYHXH6GZYJjv2hVjBFCXpanM (level: 1) was stored
+2023-06-07T15:31:06.927-00:00 [external_validator.validation_request] validating block BLsfnvZZDZPxvQxnQZZ8M2Zyd7TmYHXH6GZYJjv2hVjBFCXpanM
+2023-06-07T15:31:06.927-00:00 [validation.using_preapply_result] using pre-application result for block BLsfnvZZDZPxvQxnQZZ8M2Zyd7TmYHXH6GZYJjv2hVjBFCXpanM application
+2023-06-07T15:31:06.928-00:00 [node.store.store_block] block BLsfnvZZDZPxvQxnQZZ8M2Zyd7TmYHXH6GZYJjv2hVjBFCXpanM (level: 1) was stored
+2023-06-07T15:31:06.928-00:00 [validator.block.validation_success] block BLsfnvZZDZPxvQxnQZZ8M2Zyd7TmYHXH6GZYJjv2hVjBFCXpanM validated in 1.639ms
+2023-06-07T15:31:06.928-00:00 [node.store.set_head] BLsfnvZZDZPxvQxnQZZ8M2Zyd7TmYHXH6GZYJjv2hVjBFCXpanM (level: 1) set as new head
+2023-06-07T15:31:06.929-00:00 [node.store.update_protocol_table] the protocol table was updated: protocol ProtoALphaAL (level 1) was activated on block BLsfnvZZDZPxvQxnQZZ8M2Zyd7TmYHXH6GZYJjv2hVjBFCXpanM (level 1)
+2023-06-07T15:31:06.929-00:00 [prevalidator.started_for_prevalidator] worker started for NetXdQprcVkpa:ProtoALphaAL
+2023-06-07T15:31:06.929-00:00 [prevalidator.terminate_prevalidator] worker terminated [prevalidator]
+2023-06-07T15:31:06.929-00:00 [validator.chain.head_increment] head is now BLsfnvZZDZPxvQxnQZZ8M2Zyd7TmYHXH6GZYJjv2hVjBFCXpanM (1)
+2023-06-07T15:31:06.930-00:00 [validator.chain.block_info] treated block has timestamp 2023-06-07T15:31:06-00:00 with fitness 02::00000000::::ffffffff::00000000
+2023-06-07T15:31:51.318-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (18) received request /version
+2023-06-07T15:31:51.319-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (19) received request /chains/main/blocks/head/protocols
+2023-06-07T15:31:51.320-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (20) received request /chains/main/blocks/head/metadata
+2023-06-07T15:32:24.819-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (21) received request /version
+2023-06-07T15:32:24.820-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (22) received request /chains/main/blocks/head/protocols
+2023-06-07T15:32:36.917-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (23) received request /version
+2023-06-07T15:32:36.917-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (24) received request /chains/main/blocks/head/protocols
+2023-06-07T15:32:38.324-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (25) received request /version
+2023-06-07T15:32:38.325-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (26) received request /chains/main/blocks/head/protocols
+2023-06-07T16:35:06.698-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (27) received request /version
+2023-06-07T16:35:06.698-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (28) received request /chains/main/blocks/head/protocols
+2023-06-07T16:35:06.701-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (29) received request /monitor/heads/main?next_protocol=ProtoALphaALphaALphaALphaALphaALphaALphaALphaDdp3zK
+2023-06-07T16:35:06.702-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (30) received request /chains/main/blocks/BLockGenesisGenesisGenesisGenesisGenesisf79b5d1CoW2/protocols
+2023-06-07T16:35:06.703-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (31) received request /chains/main/blocks/BLockGenesisGenesisGenesisGenesisGenesisf79b5d1CoW2/header/raw
+2023-06-07T16:35:06.703-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (32) received request /chains/main/mempool/monitor_operations?applied=yes&refused=no&outdated=no&branch_refused=no&branch_delayed=yes
+2023-06-07T16:35:06.703-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (33) received request /chains/main/chain_id
+2023-06-07T16:35:06.704-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (34) received request /chains/main/blocks/head/header/shell
+2023-06-07T16:35:06.704-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (35) received request /chains/NetXdQprcVkpaWU/blocks/head/context/constants
+2023-06-07T16:35:06.704-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (36) received request /chains/main/mempool/request_operations
+2023-06-07T16:35:06.705-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (37) received request /chains/NetXdQprcVkpaWU/blocks/head/helpers/validators?level=1
+2023-06-07T16:35:06.706-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (38) received request /chains/NetXdQprcVkpaWU/blocks/head/helpers/validators?level=2
+2023-06-07T16:35:06.707-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (39) received request /chains/main/mempool/pending_operations?version=1&applied=yes&refused=no&outdated=no&branch_refused=no&branch_delayed=yes
+2023-06-07T16:35:06.713-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (40) received request /chains/NetXdQprcVkpaWU/blocks/BLsfnvZZDZPxvQxnQZZ8M2Zyd7TmYHXH6GZYJjv2hVjBFCXpanM/helpers/current_level?offset=1
+2023-06-07T16:35:06.714-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (41) received request /chains/NetXdQprcVkpaWU/blocks/BLsfnvZZDZPxvQxnQZZ8M2Zyd7TmYHXH6GZYJjv2hVjBFCXpanM/resulting_context_hash
+2023-06-07T16:35:06.715-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (42) received request /chains/NetXdQprcVkpaWU/blocks/BLsfnvZZDZPxvQxnQZZ8M2Zyd7TmYHXH6GZYJjv2hVjBFCXpanM/live_blocks
+2023-06-07T16:35:06.715-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (43) received request /chains/NetXdQprcVkpaWU/blocks/BLsfnvZZDZPxvQxnQZZ8M2Zyd7TmYHXH6GZYJjv2hVjBFCXpanM/helpers/preapply/block?timestamp=1686151867
+2023-06-07T16:35:06.716-00:00 [protocol_cache.start_loading_cache] start loading cache now
+2023-06-07T16:35:06.716-00:00 [protocol_cache.stop_loading_cache] stop loading cache now
+2023-06-07T16:35:06.716-00:00 [protocol_cache.start_loading_cache] start loading cache now
+2023-06-07T16:35:06.717-00:00 [protocol_cache.stop_loading_cache] stop loading cache now
+2023-06-07T16:35:06.722-00:00 [validator.block.preapplication_success] block at level 2 successfully pre-applied in 5.895ms
+2023-06-07T16:35:06.725-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (44) received request /injection/block?async=true&chain=NetXdQprcVkpaWU
+2023-06-07T16:35:06.725-00:00 [external_validator.precheck_request] prechecking block BMdMBMURXZNoENny7h2u8UVyTpzgDjhmsyyt55vYSwsgqxj92ea
+2023-06-07T16:35:06.726-00:00 [validator.block.prechecked_block] prechecked block BMdMBMURXZNoENny7h2u8UVyTpzgDjhmsyyt55vYSwsgqxj92ea
+2023-06-07T16:35:06.726-00:00 [node.store.store_validated_block] validated block BMdMBMURXZNoENny7h2u8UVyTpzgDjhmsyyt55vYSwsgqxj92ea (level: 2) was stored
+2023-06-07T16:35:06.726-00:00 [external_validator.validation_request] validating block BMdMBMURXZNoENny7h2u8UVyTpzgDjhmsyyt55vYSwsgqxj92ea
+2023-06-07T16:35:06.727-00:00 [validation.using_preapply_result] using pre-application result for block BMdMBMURXZNoENny7h2u8UVyTpzgDjhmsyyt55vYSwsgqxj92ea application
+2023-06-07T16:35:06.727-00:00 [node.store.store_block] block BMdMBMURXZNoENny7h2u8UVyTpzgDjhmsyyt55vYSwsgqxj92ea (level: 2) was stored
+2023-06-07T16:35:06.727-00:00 [validator.block.validation_success] block BMdMBMURXZNoENny7h2u8UVyTpzgDjhmsyyt55vYSwsgqxj92ea validated in 2.132ms
+2023-06-07T16:35:06.727-00:00 [node.store.set_head] BMdMBMURXZNoENny7h2u8UVyTpzgDjhmsyyt55vYSwsgqxj92ea (level: 2) set as new head
+2023-06-07T16:35:06.728-00:00 [prevalidator.request_completed_info] switching to new head BMdMBMURXZNoENny7h2u8UVyTpzgDjhmsyyt55vYSwsgqxj92ea in 207us
+2023-06-07T16:35:06.728-00:00 [validator.chain.head_increment] head is now BMdMBMURXZNoENny7h2u8UVyTpzgDjhmsyyt55vYSwsgqxj92ea (2)
+2023-06-07T16:35:06.728-00:00 [validator.chain.block_info] treated block has timestamp 2023-06-07T15:31:07-00:00 with fitness 02::00000002::::ffffffff::00000000
+2023-06-07T16:35:06.745-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] streamed connection closed 32
+2023-06-07T16:35:24.563-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (45) received request /version
+2023-06-07T16:35:24.564-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (46) received request /chains/main/blocks/head/protocols
+2023-06-07T16:35:24.565-00:00 [rpc_http_event.legacy_logging_event-rpc_http_event-info] (47) received request /chains/main/blocks/head/metadata
