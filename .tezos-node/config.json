@@ -1,9 +1,0 @@
-{ "rpc": { "listen-addrs": [ "127.0.0.1:18731" ] },
-  "p2p":
-    { "bootstrap-peers": [], "listen-addr": "127.0.0.1:19731",
-      "limits":
-        { "connection-timeout": 10, "min-connections": 0,
-          "expected-connections": 0, "max-connections": 0,
-          "max_known_points": [ 0, 0 ], "max_known_peer_ids": [ 0, 0 ] } },
-  "shell": { "chain_validator": { "synchronisation_threshold": 2 } },
-  "network": "sandbox" }
