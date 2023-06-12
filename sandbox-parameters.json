@@ -108,5 +108,7 @@
     "zk_rollup_min_pending_to_process": 10,
     "adaptive_inflation_enable": false,
     "staking_over_baking_limit": 5,
-    "max_costaking_baker_count": 5
+    "max_costaking_baker_count": 5,
+    "staking_over_delegation_edge": 2,
+    "adaptive_inflation_launch_ema_threshold": "1600000000"
 }
