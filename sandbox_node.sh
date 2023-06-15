@@ -35,8 +35,7 @@ octez-client import secret key activator unencrypted:edsk31vznjHSSpGExDMHYASz45V
 # may not reflect the performance on the actual Mainnet. The necessary data for this can be found in the 
 # `sandbox-parameters.json` file.
 
-octez-client -block genesis activate protocol ProtoALphaALphaALphaALphaALphaALphaALphaALphaDdp3zK with fitness 1 and key activator and parameters sandbox-parameters.json
-
+octez-client -block genesis activate protocol ProtoALphaALphaALphaALphaALphaALphaALphaALphaDdp3zK with fitness 1 and key activator and parameters /usr/local/share/tezos/alpha-parameters/sandbox-parameters.json
 # The migration to the alpha protocol requires a manual baking process. In this case, we will create new test accounts 
 # to facilitate this process.
 
