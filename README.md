@@ -32,14 +32,11 @@ Prerequisites for developing kernels are `cargo` and a `Rust` compiler with `Web
 
 We propose using `rustup` for this purpose, by following this [installation tutorial](https://www.rust-lang.org/tools/install).
 
-:::info
-:information_source: In case you have an outdated version, you might encounter issues. Therefore, we encourage you to do:
+:information_source: In case you have an outdated version, you might encounter issues. In this case, we encourage you to do:
 
 ```bash!
 rustup override set 1.66
 ```
-
-:::
 
 With `rustup`, one can enable `WASM` as a compilation target using the following:
 
@@ -201,9 +198,7 @@ Please note that the version number mentioned may not precisely match the versio
 
 ### 3.2. OPAM
 
-:::warning
 :warning: We suggest utilizing this approach only if you are already familiar with `OPAM`.
-:::
 
 If you're acquainted with the `opam` tool, you might prefer to install `Octez` into your `OPAM` switch:
 
@@ -314,9 +309,7 @@ $ du -h target/wasm32-unknown-unknown/debug/hello_world_kernel.wasm
 # 532.0K target/wasm32-unknown-unknown/debug/hello_world_kernel.wasm
 ```
 
-:::info
 :information_source: If you did not install `wabt` in your `Docker` session, you can open another terminal session, navigate to the <kbd>"Hello, World!" kernel </kbd> directory, and do this there. The modifications will get propagated to the interactive `Docker` session thanks to the `--volume` command option.
-:::
 
 Undoubtedly, this process has effectively reduced the size of the kernel. However, there is still additional work required to ensure compliance with the manager operation size limit.
 
