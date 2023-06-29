@@ -2,9 +2,10 @@
 
 - `src/lib.rs` -- contains the `Rust` code for our "Hello, World" kernel
 - `Cargo.toml` -- has the necessary dependencies for the building process
-- `empty_input.json` -- empty example of an input (for debugging purposes)
+- `empty_input.json` -- empty example of a kernel input (for debugging purposes)
+- `rustup-toolchain.toml` -- specifies the `rust` version required
 - `sandbox_node.sh` -- script for setting up the sandboxed mode binaries
-- `two_inputs.json` -- example of an input with two messages (for debugging purposes)
+- `two_inputs.json` -- example of a kernel input with two messages (for debugging purposes)
 
 This tutorial will explain in detail the necessary steps for setting up a **smart rollup** on a test network for the Tezos blockchain. A valuable resource for learning about this exciting new feature can be found by following the [GitLab documentation](https://tezos.gitlab.io/alpha/smart_rollups.html).
 
@@ -31,18 +32,6 @@ In this tutorial, `Rust` is used as the programming language for the kernel due 
 Prerequisites for developing kernels are `cargo` and a `Rust` compiler with `WebAssembly` support (e.g. `wasm32-unknown-unknown` target).
 
 We propose using `rustup` for this purpose, by following this [installation tutorial](https://www.rust-lang.org/tools/install).
-
-:information_source: In case you have an outdated version, you might encounter issues. In this case, we encourage you to do:
-
-```bash!
-rustup override set 1.66
-```
-
-With `rustup`, one can enable `WASM` as a compilation target using the following:
-
-```bash!
-rustup target add wasm32-unknown-unknown
-```
 
 ### 2.3. `Clang` + `LLVM`
 
@@ -117,6 +106,18 @@ You can clone the repository as such:
 ```bash!
 git clone https://gitlab.com/trili/hello-world-kernel.git
 cd hello-world-kernel/
+```
+
+Now, ensure that you have `rust` version (run `cargo --version`) at least `1.66.0` installed. Otherwise, run the following:
+
+```bash!
+rustup override set 1.66.0
+```
+
+With `rustup`, one can enable `WASM` as a compilation target using the following:
+
+```bash!
+rustup target add wasm32-unknown-unknown
 ```
 
 You can immediately build using:
