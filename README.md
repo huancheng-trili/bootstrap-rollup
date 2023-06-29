@@ -169,12 +169,10 @@ You need the `Octez` binaries to test locally and deploy a Smart Rollup kernel.
 `Octez` is distributed in multiple ways. Most convenient to you may be these:
 
 - Container Images ([`Docker`](https://hub.docker.com/r/tezos/tezos/) or [`Podman`](https://podman.io/))
-- `OPAM`
-- Nix Shell
+- [`OPAM`](https://tezos.gitlab.io/introduction/howtoget.html#building-from-sources-via-opam)
+- [`nix-shell`](https://nixos.org/download.html)
 
 In this tutorial, we strongly encourage trying with the first option. The `OPAM` option only applies to developers who are familiar with the tool, and the `nix-shell` option might require more time to be properly set up than the first two.
-
-### 3.1. Container Images
 
 You have the option to install one of the popular tools for interacting with container images:
 
@@ -191,13 +189,20 @@ To obtain the most recent image from our repository, execute the following comma
 docker pull tezos/tezos:master
 ```
 
-Now, you can initiate an interactive (`-it`) session with `Docker` based on that image, which allows access to the kernel files created as part of this tutorial. To achieve this, you must mount the current directory within the container using the [`--volume`](https://docs.docker.com/storage/bind-mounts/) argument. Run the following command within the <kbd>"Hello, World!" kernel</kbd> directory:
+Now, you can initiate an interactive (`-it`) session with `Docker` based on that image, which allows access to the kernel files created as part of this tutorial. To achieve this, you must mount the current directory (you must be in the <kbd>"Hello, World!" kernel</kbd> directory) within the container using the [`--volume`](https://docs.docker.com/storage/bind-mounts/) argument. Run the following command within the <kbd>"Hello, World!" kernel</kbd> directory:
 
 ```bash!
-docker run -it --volume $(pwd):/home/tezos/hello-world-kernel --entrypoint /bin/sh --name octez-container tezos/tezos:master
+docker run -it --rm --volume $(pwd):/home/tezos/hello-world-kernel --entrypoint /bin/sh --name octez-container tezos/tezos:master
 ```
 
+The `--rm` option is used so that the container that we created will be killed when we exit the `Docker` session.
+
+In the rest of the tutorial we will have to do work both inside and outside the `Docker` section(s). For clarity, we will specify where the commands
+should be executed. The command above means we are now in <kbd>docker session 1</kbd>.
+
 At this point, you should observe that the <kbd>"Hello, World!" kernel</kbd> directory is accessible and contains the kernel files previously created.
+
+<kbd>docker session 1</kbd>
 
 ```bash!
 ls -1 hello-world-kernel
@@ -205,6 +210,8 @@ ls -1 hello-world-kernel
 ```
 
 At this stage, you can verify that the container image includes all the required executables:
+
+<kbd>docker session 1</kbd>
 
 ```bash!
 octez-node --version
@@ -219,38 +226,6 @@ octez-client --version
 
 Please note that the version number mentioned may not precisely match the version you have locally, as the container images are periodically updated.
 
-### 3.2. OPAM
-
-:warning: We suggest utilizing this approach only if you are already familiar with `OPAM`.
-
-If you're acquainted with the `opam` tool, you might prefer to install `Octez` into your `OPAM` switch:
-
-```bash!
-opam install octez
-```
-
-For a more comprehensive installation guide via `OPAM`, please refer to this [guide](https://tezos.gitlab.io/introduction/howtoget.html#building-from-sources-via-opam).
-
-### 3.3. Nix Shell
-
-Another way to bring in the `Octez` binaries is through a Nix shell.
-
-The Nix website provides some information on how to install the Nix package manager [here](https://nixos.org/download.html).
-
-Once you have Nix installed, you can simply drop into a Nix shell like so:
-
-```bash!
-$ nix-shell -p 'import (builtins.fetchTarball "https://gitlab.com/tezos/tezos/-/archive/master/tezos-master.zip")'
-[nix-shell:~]$ # You're in a Nix shell! 
-```
-
-For `x86_64-linux` systems, there is a binary cache available. Add this to your `nix.conf` to activate it:
-
-```bash!
-extra-trusted-public-keys = nix.cache.hwlium.com:M57rk9haJRNFiNUA+6sF6ogbIVg4k8XrKpf5QSohBEA= nix.cache.hwlium.com-2:mFFtk/Pvh/mrCJ7DHOY9mf769A/Nth97WFXMPMy6BGw=
-extra-substituters = https://nix.cache.hwlium.com
-```
-
 ## 4. Processing the Kernel
 
 ### 4.1. Debugging the Kernel
@@ -259,9 +234,13 @@ Before originating a rollup, it can be helpful to observe the behavior of its ke
 However, before using it, it is important to understand how the rollup receives its inputs. Each block at every level of the blockchain has a specific section dedicated to the (shared and unique) **smart rollup inbox**. Consequently, the inputs of a rollup can be seen as a list of inboxes for each level, or more precisely, a list of lists.
 Let us start from a trivial inbox, which is stored in the `empty_input.json` file. We can debug the <kbd>"Hello, World!" kernel</kbd> with:
 
+<kbd>docker session 1</kbd>
+
 ```bash!
 cd hello-world-kernel
 ```
+
+<kbd>docker session 1</kbd>
 
 ```bash!
 octez-smart-rollup-wasm-debugger target/wasm32-unknown-unknown/debug/hello_world_kernel.wasm --inputs empty_input.json
@@ -270,6 +249,8 @@ octez-smart-rollup-wasm-debugger target/wasm32-unknown-unknown/debug/hello_world
 Now you are in **debugging** mode, which is very well documented and explained in the [documentation](https://tezos.gitlab.io/alpha/smart_rollups.html#testing-your-kernel). Similar to how the rollup awaits internal messages from Layer 1 or external sources, the debugger also waits for inputs.
 
 Once we're in the debugger REPL (read–eval–print loop), you can run the kernel for one level using the `step inbox` command:
+
+<kbd>docker session 1</kbd>
 
 ```bash!
 > step inbox
@@ -296,9 +277,13 @@ It is important to understand that the **shared rollup inbox** has at each level
 
 You will notice that the behavior aligns with the expectations. You can also experiment with a non-empty input, such as `two_inputs.json`:
 
+<kbd>docker session 1</kbd>
+
 ```bash!
 octez-smart-rollup-wasm-debugger target/wasm32-unknown-unknown/debug/hello_world_kernel.wasm --inputs two_inputs.json
 ```
+
+<kbd>docker session 1</kbd>
 
 ```bash!
 > step inbox
@@ -323,12 +308,16 @@ The origination process is similar to that of smart contracts. To originate a sm
 
 Regrettably, the size of the `.wasm` file is currently too large:
 
+<kbd>docker session 1</kbd>
+
 ```bash!
 du -h target/wasm32-unknown-unknown/debug/hello_world_kernel.wasm 
 # 17.3M target/wasm32-unknown-unknown/debug/hello_world_kernel.wasm
 ```
 
-To address this, we can use `wasm-strip`, a tool designed to reduce the size of kernels. It accomplishes this by removing unused parts of the `WebAssembly` module (e.g. dead code), which are not required for the execution of the rollups.
+To address this, we can use `wasm-strip`, a tool designed to reduce the size of kernels. It accomplishes this by removing unused parts of the `WebAssembly` module (e.g. dead code), which are not required for the execution of the rollups. Open a new terminal session and navigate to the <kbd> "Hello, world!" kernel </kbd> directory, since you do not have `wasm-strip` in your `Docker` session:
+
+<kbd>outside docker session - hello-world-kernel</kbd>
 
 ```bash!
 wasm-strip target/wasm32-unknown-unknown/debug/hello_world_kernel.wasm 
@@ -337,7 +326,7 @@ du -h target/wasm32-unknown-unknown/debug/hello_world_kernel.wasm
 # 532.0K target/wasm32-unknown-unknown/debug/hello_world_kernel.wasm
 ```
 
-:information_source: If you did not install `wabt` in your `Docker` session, you can open another terminal session, navigate to the <kbd>"Hello, World!" kernel </kbd> directory, and do this there. The modifications will get propagated to the interactive `Docker` session thanks to the `--volume` command option.
+The modifications from outside will get propagated to the interactive `Docker` session thanks to the `--volume` command option.
 
 Undoubtedly, this process has effectively reduced the size of the kernel. However, there is still additional work required to ensure compliance with the manager operation size limit.
 
@@ -354,11 +343,15 @@ The main benefit of the installer kernel is that it is small enough to be used i
 
 There is an [installer kernel origination topic](https://tezos.stackexchange.com/questions/4784/how-to-originating-a-smart-rollup-with-an-installer-kernel/5794#5794) for this, please consult it for further clarifications. To generate the **installer kernel**, the `smart-rollup-installer` tool is required:
 
+<kbd>outside docker session - hello-world-kernel</kbd>
+
 ```bash!
 cargo install tezos-smart-rollup-installer
 ```
 
 To create the installer kernel from the initial kernel:
+
+<kbd>outside docker session - hello-world-kernel</kbd>
 
 ```bash!
 smart-rollup-installer get-reveal-installer --upgrade-to target/wasm32-unknown-unknown/debug/hello_world_kernel.wasm --output hello_world_kernel_installer.hex --preimages-dir preimages/
@@ -371,6 +364,8 @@ This command creates the following:
 
 Notice the reduced dimensions of the installer kernel:
 
+<kbd>outside docker session - hello-world-kernel</kbd>
+
 ```bash!
 du -h hello_world_kernel_installer.hex
 # 36.0K hello_world_kernel_installer.hex
@@ -378,7 +373,7 @@ du -h hello_world_kernel_installer.hex
 
 Because of the dimension of this installer kernel, you are now ready for deployment.
 
-Note that this shows the size of the hex encoded file, which is larger than the actual binary size of the kernel that we originate.
+Note that this shows the size of the `hex` encoded file, which is larger than the actual binary size of the kernel that we originate.
 
 ## 5. Deploying the Kernel
 
@@ -393,6 +388,8 @@ Our goal now is to create a testing environment for originating our rollup with 
 
 Run the file with:
 
+<kbd>docker session 1</kbd>
+
 ```bash!
 ./sandbox_node.sh
 ```
@@ -401,11 +398,15 @@ Ignore the "Unable to connect to the node" error, as it only comes one time beca
 
 Leave that process running. Open a new `Docker` session, which works in the same container named `octez-container`:
 
+<kbd>outside docker session - hello-world-kernel</kbd>
+
 ```bash!
 docker exec -it octez-container /bin/sh
 ```
 
 To check that the network has the correctly configured protocol:
+
+<kbd>docker session 2</kbd>
 
 ```bash!
 octez-client rpc get /chains/main/blocks/head/metadata | grep protocol
@@ -420,9 +421,13 @@ You are now ready for the Smart Rollup origination process.
 
 To originate a smart rollup using the `hello_world_kernel_installer` created above:
 
+<kbd>docker session 2</kbd>
+
 ```bash!
 octez-client originate smart rollup "test_smart_rollup" from "bootstrap1" of kind wasm_2_0_0 of type bytes with kernel file:hello-world-kernel/hello_world_kernel_installer.hex --burn-cap 3
-     
+```
+
+```bash!
 # > Node is bootstrapped.
 # ...
 # Smart rollup sr1B8HjmEaQ1sawZtnPU3YNEkYZavkv54M4z memorized as "test_smart_rollup"
@@ -432,6 +437,8 @@ In the command above, the `--burn-cap` option specifies the amount of ꜩ you ar
 
 To run a rollup node for the rollup using the installer kernel, you need to copy the contents of the preimages directory to `${ROLLUP_NODE_DIR}/wasm_2_0_0/`. You can set `$ROLLUP_NODE_DIR` to `~/.tezos-rollup-node`, for instance:
 
+<kbd>docker session 2</kbd>
+
 ```bash!
 mkdir -p ~/.tezos-rollup-node/wasm_2_0_0
 
@@ -440,6 +447,8 @@ cp hello-world-kernel/preimages/* ~/.tezos-rollup-node/wasm_2_0_0/
 
 You should now be able to **run** your rollup node:
 
+<kbd>docker session 2</kbd>
+
 ```bash!
 octez-smart-rollup-node-alpha run operator for "test_smart_rollup" with operators "bootstrap2" --data-dir ~/.tezos-rollup-node/ --log-kernel-debug --log-kernel-debug-file hello_kernel.debug
 ```
@@ -447,6 +456,8 @@ octez-smart-rollup-node-alpha run operator for "test_smart_rollup" with operator
 Leave this running as well, and open another `Docker` session, as already explained, with the `octez-container`.
 
 Each time a block is baked, a new "Hello, kernel!" message should appear in the `hello_kernel.debug` file:
+
+<kbd>docker session 3</kbd>
 
 ```bash!
 tail -f hello_kernel.debug 
@@ -463,17 +474,23 @@ Finally, you have successfully deployed a very basic yet functional smart rollup
 
 We now want to send an external message into the rollup inbox, which should be read by our kernel and sent as a debug message. First, we will wait for it to appear using:
 
+<kbd>docker session 3</kbd>
+
 ```bash!
 tail -f hello_kernel.debug | grep External
 ```
 
 Open yet another `Docker` session and send an external message into the rollup inbox, you can utilize the `Octez` client:
 
+<kbd>docker session 4</kbd>
+
 ```bash!
 octez-client send smart rollup message '[ "test" ]' from "bootstrap3"
 ```
 
 Once you send the Smart Rollup message, you will notice that in the debug trace, you get:
+
+<kbd>docker session 3</kbd>
 
 ```bash!
 Got message: External([116, 101, 115, 116])
