@@ -1,11 +1,11 @@
 # Smart Rollups Onboarding Tutorial
 
-- `src/lib.rs` -- contains the `Rust` code for our "Hello, World" kernel
-- `Cargo.toml` -- has the necessary dependencies for the building process
-- `empty_input.json` -- empty example of a kernel input (for debugging purposes)
-- `rustup-toolchain.toml` -- specifies the `rust` version required
-- `sandbox_node.sh` -- script for setting up the sandboxed mode binaries
-- `two_inputs.json` -- example of a kernel input with two messages (for debugging purposes)
+- `src/lib.rs` -- contains the `Rust` code for our "Hello, World" kernel.
+- `Cargo.toml` -- has the necessary dependencies for the building process.
+- `empty_input.json` -- an empty example of a kernel input (for debugging purposes).
+- `rustup-toolchain.toml` -- specifies the `rust` version required.
+- `sandbox_node.sh` -- the script for setting up the sandboxed mode binaries.
+- `two_inputs.json` -- an example of a kernel input with two messages (for debugging purposes).
 
 This tutorial will explain in detail the necessary steps for setting up a **smart rollup** on a test network for the Tezos blockchain. A valuable resource for learning about this exciting new feature can be found by following the [GitLab documentation](https://tezos.gitlab.io/alpha/smart_rollups.html).
 
@@ -31,13 +31,13 @@ In this tutorial, `Rust` is used as the programming language for the kernel due 
 
 Prerequisites for developing kernels are `cargo` and a `Rust` compiler with `WebAssembly` support (e.g. `wasm32-unknown-unknown` target).
 
-We propose using `rustup` for this purpose, by following this [installation tutorial](https://www.rust-lang.org/tools/install):
+We propose using `rustup` for this purpose by following this [installation tutorial](https://www.rust-lang.org/tools/install):
 
 ```bash!
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
-### 2.3. `Clang` + `LLVM`
+### 2.3. `Clang` and `LLVM`
 
 We need `Clang` for compilation to `WebAssembly`. At minimum version `11` is required. Here are some suggested ways to achieve that, depending on your OS:
 
@@ -69,7 +69,7 @@ pacman -S clang
 export CC=clang
 ```
 
-We do the `export CC` because there are systems, such as various Linux distributions, that don't ship with `Clang` as their default `C/C++` compiler.
+We do `export CC` because there are systems, such as various Linux distributions, that don't ship with `Clang` as their default `C/C++` compiler.
 
 Check that at least version `11` is installed with `$CC --version`.
 
@@ -91,9 +91,9 @@ export AR="$(brew --prefix llvm)/bin/llvm-ar"
 
 ### 2.4. WebAssembly Toolkit
 
-During development, having the [`WebAssembly Toolkit` (`wabt`)](https://github.com/WebAssembly/wabt) available is useful. It provides tooling for stripping `WebAssembly` binaries (`wasm-strip`) and conversion utilities between the textual and binary representation of `WebAssembly` (`wat2wasm`, `wasm2wat`).
+During development, having the [`WebAssembly Toolkit` (`wabt`)](https://github.com/WebAssembly/wabt) available is useful. It provides tooling for stripping `WebAssembly` binaries (`wasm-strip`) and conversion utilities between the textual and binary representations of `WebAssembly` (`wat2wasm`, `wasm2wat`).
 
-Most distributions ship a `wabt` package which you can install using:
+Most distributions ship a `wabt` package, which you can install using:
 
 #### MacOS
 
@@ -119,20 +119,20 @@ dnf install wabt
 pacman -S wabt
 ```
 
-Then, check that the `wasm-strip` version is at least `1.0.31` (with `wasm-strip --version`). If not, you can download it directly from [here](https://github.com/WebAssembly/wabt/releases/tag/1.0.31), extract files, and then whenever you have to use `wasm-strip`, you can use `.<path_to_wabt_1.0.31>/bin/wasm-strip`, instead.
+Then, check that the `wasm-strip` version is at least `1.0.31` (with `wasm-strip --version`). If not, you can download it directly from [here](https://github.com/WebAssembly/wabt/releases/tag/1.0.31), extract the files, and then whenever you have to use `wasm-strip`, you can use `.<path_to_wabt_1.0.31>/bin/wasm-strip` instead.
 
 ### 2.5. "Hello, World!" Kernel
 
 To get started, we've prepared a [repository](https://gitlab.com/trili/hello-world-kernel) that helps you get started with kernel development quickly.
 
-You can clone the repository as such:
+You can clone the repository as follows:
 
 ```bash!
 git clone https://gitlab.com/trili/hello-world-kernel.git
 cd hello-world-kernel/
 ```
 
-Now, ensure that you have `rust` version (run `cargo --version`) at least `1.66.0` installed. Otherwise, run the following:
+Now, ensure that you have the `rust` version (run `cargo --version`) at least `1.66.0` installed. Otherwise, run the following:
 
 ```bash!
 rustup override set 1.66.0
@@ -164,7 +164,7 @@ ls -1 target/wasm32-unknown-unknown/debug
 # libhello_world_kernel.rlib
 ```
 
-The most important item is the `hello_world_kernel.wasm` which is our readily compiled kernel.
+The most important item is `hello_world_kernel.wasm`, which is our readily compiled kernel.
 
 ## 3. Getting `Octez`
 
@@ -186,7 +186,7 @@ docker run -it --rm --volume $(pwd):/home/tezos/hello-world-kernel --entrypoint 
 
 The `--rm` option is used so that the container that we created will be killed when we exit the `Docker` session.
 
-In the rest of the tutorial we will have to do work both inside and outside the `Docker` section(s). For clarity, we will specify where the commands
+In the rest of the tutorial, we will have to do work both inside and outside the `Docker` section(s). For clarity, we will specify where the commands
 should be executed. The command above means we are now in <kbd>docker session 1</kbd>.
 
 At this point, you should observe that the <kbd>"Hello, World!" kernel</kbd> directory is accessible and contains the kernel files previously created.
@@ -220,8 +220,8 @@ Please note that the version number mentioned may not precisely match the versio
 ### 4.1. Debugging the Kernel
 
 Before originating a rollup, it can be helpful to observe the behavior of its kernel. To facilitate this, there is a dedicated `Octez` binary called `octez-smart-rollup-wasm-debugger`.
-However, before using it, it is important to understand how the rollup receives its inputs. Each block at every level of the blockchain has a specific section dedicated to the (shared and unique) **smart rollup inbox**. Consequently, the inputs of a rollup can be seen as a list of inboxes for each level, or more precisely, a list of lists.
-Let us start from a trivial inbox, which is stored in the `empty_input.json` file. We can debug the <kbd>"Hello, World!" kernel</kbd> with:
+However, before using it, it is important to understand how the rollup receives its inputs. Each block at every level of the blockchain has a specific section dedicated to the shared and unique **smart rollup inbox**. Consequently, the inputs of a rollup can be seen as a list of inboxes for each level, or more precisely, a list of lists.
+Let us start with a trivial inbox, which is stored in the `empty_input.json` file. We can debug the <kbd>"Hello, World!" kernel</kbd> with:
 
 <kbd>docker session 1</kbd>
 
@@ -256,13 +256,13 @@ Once we're in the debugger REPL (read–eval–print loop), you can run the kern
 Let us explain what our kernel is supposed to do:
 
 - whenever it receives an input, it prints the `"Hello, kernel!"` message.
-- whenever there is a message in the input, it prints it, because of the `handle_message` function.
+- whenever there is a message in the input, it is printed, because of the `handle_message` function.
 
 It is important to understand that the **shared rollup inbox** has at each level at least the following **internal** messages:
 
-- <kbd>StartOfLevel</kbd> -- marks the beginning of the inbox level, does not have any payload.
+- <kbd>StartOfLevel</kbd> -- marks the beginning of the inbox level and does not have any payload.
 - <kbd>InfoPerLevel</kbd> -- provides the timestamp and block hash of the predecessor of the current Tezos block as payload.
-- <kbd>EndOfLevel</kbd> -- pushed after the application of the operations of the Tezos block, does not have any payload.
+- <kbd>EndOfLevel</kbd> -- pushed after the application of the operations of the Tezos block and does not have any payload.
 
 You will notice that the behavior aligns with the expectations. You can also experiment with a non-empty input, such as `two_inputs.json`:
 
@@ -293,7 +293,7 @@ Feel free to explore additional examples from the dedicated [kernel gallery](htt
 
 ### 4.2. Reducing the Size of the Kernel
 
-The origination process is similar to that of smart contracts. To originate a smart rollup, we have to consider the size of the kernel that shall be deployed. The size of the kernel needs to be smaller than the manager operation size limit.
+The origination process is similar to that of smart contracts. To originate a smart rollup, we have to consider the size of the kernel that will be deployed. The size of the kernel needs to be smaller than the manager operation size limit.
 
 Regrettably, the size of the `.wasm` file is currently too large:
 
@@ -304,7 +304,7 @@ du -h target/wasm32-unknown-unknown/debug/hello_world_kernel.wasm
 # 17.3M target/wasm32-unknown-unknown/debug/hello_world_kernel.wasm
 ```
 
-To address this, we can use `wasm-strip`, a tool designed to reduce the size of kernels. It accomplishes this by removing unused parts of the `WebAssembly` module (e.g. dead code), which are not required for the execution of the rollups. Open a new terminal session and navigate to the <kbd> "Hello, world!" kernel </kbd> directory, since you do not have `wasm-strip` in your `Docker` session:
+To address this, we can use `wasm-strip`, a tool designed to reduce the size of kernels. It accomplishes this by removing unused parts of the `WebAssembly` module (e.g. dead code), which are not required for the execution of the rollups. Open a new terminal session and navigate to the <kbd> "Hello, world!" kernel </kbd> directory since you do not have `wasm-strip` in your `Docker` session:
 
 <kbd>outside docker session - hello-world-kernel</kbd>
 
@@ -321,16 +321,16 @@ Undoubtedly, this process has effectively reduced the size of the kernel. Howeve
 
 ### 4.3. The Installer Kernel
 
-Instead of using a kernel file for origination in the aforementioned format, an alternative approach is to utilize the **installer** version of the kernel. This **installer kernel** can be **upgraded** to the original version if provided with additional information, in the form of **preimages** which can be provided to the rollup node later on as part of its **reveal data channel**.
+Instead of using a kernel file for origination in the aforementioned format, an alternative approach is to utilize the **installer** version of the kernel. This **installer kernel** can be **upgraded** to the original version if provided with additional information in the form of **preimages**, which can be provided to the rollup node later on as part of its **reveal data channel**.
 
 There are two ways to communicate with smart rollups:
 
 1. **global inbox** -- allows Layer 1 to transmit information to all rollups. This unique inbox contains two kinds of messages: **external messages** are pushed through a Layer 1 manager operation, while **internal messages** are pushed by Layer 1 smart contracts or the protocol itself (e.g. `StartOfLevel`, `InfoPerLevel`, `EndOfLevel`).
 2. **reveal data channel** -- allows the rollup to retrieve data (e.g. **preimages**) coming from data sources external to Layer 1.
 
-The main benefit of the installer kernel is that it is small enough to be used in origination regardless of the kernel that it shall be upgraded to.
+The main benefit of the installer kernel is that it is small enough to be used in origination regardless of the kernel that it will be upgraded to.
 
-There is an [installer kernel origination topic](https://tezos.stackexchange.com/questions/4784/how-to-originating-a-smart-rollup-with-an-installer-kernel/5794#5794) for this, please consult it for further clarifications. To generate the **installer kernel**, the `smart-rollup-installer` tool is required:
+There is an [installer kernel origination topic](https://tezos.stackexchange.com/questions/4784/how-to-originating-a-smart-rollup-with-an-installer-kernel/5794#5794) for this; please consult it for further clarifications. To generate the **installer kernel**, the `smart-rollup-installer` tool is required:
 
 <kbd>outside docker session - hello-world-kernel</kbd>
 
@@ -360,7 +360,7 @@ du -h hello_world_kernel_installer.hex
 # 36.0K hello_world_kernel_installer.hex
 ```
 
-Because of the dimension of this installer kernel, you are now ready for deployment.
+Because of the size of this installer kernel, you are now ready for deployment.
 
 Note that this shows the size of the `hex` encoded file, which is larger than the actual binary size of the kernel that we originate.
 
@@ -371,8 +371,8 @@ Note that this shows the size of the `hex` encoded file, which is larger than th
 Our goal now is to create a testing environment for originating our rollup with the created kernel. In the `hello-world-kernel` repository, we offer the <kbd>sandbox-node.sh</kbd> file, which does the following:
 
 - configures the `Octez` node to operate in [**sandbox mode**](https://tezos.gitlab.io/user/sandbox.html).
-- activates the `alpha` protocol, by using an `activator` account.
-- creates 5 test (bootstrapping) accounts used for manual [**baking**](https://opentezos.com/baking/cli-baker/).
+- activates the `alpha` protocol by using an `activator` account.
+- creates five test (bootstrapping) accounts used for manual [**baking**](https://opentezos.com/baking/cli-baker/).
 - creates a loop of continuous baking.
 
 Run the file with:
@@ -383,7 +383,7 @@ Run the file with:
 ./sandbox_node.sh
 ```
 
-Ignore the "Unable to connect to the node" error, as it only comes one time because the `octez-client` command was used while the node was not yet bootstrapped. The result should be a permanent loop containing:
+Ignore the "Unable to connect to the node" error, as it only comes once because the `octez-client` command was used while the node was not yet bootstrapped. The result should be a permanent loop containing:
 
 <kbd>docker session 1</kbd>
 
@@ -475,7 +475,7 @@ We now want to send an external message into the rollup inbox, which should be r
 tail -f hello_kernel.debug | grep External
 ```
 
-Open yet another `Docker` session and send an external message into the rollup inbox, you can utilize the `Octez` client:
+Open yet another `Docker` session and send an external message into the rollup inbox. You can use the `Octez` client:
 
 <kbd>docker session 4</kbd>
 
@@ -510,7 +510,7 @@ The workflow should be similar to the one presented for the sandbox mode:
 - run the rollup node;
 - check the debug file.
 
-## 6. Further References & Documentation
+## 6. Further References and Documentation
 
 1. [Smart Rollup Documentation](https://tezos.gitlab.io/alpha/smart_rollups.html)
 2. [Smart Rollup Kernel SDK Tutorial](https://gitlab.com/tezos/tezos/-/tree/master/src/kernel_sdk)
@@ -519,5 +519,5 @@ The workflow should be similar to the one presented for the sandbox mode:
 5. [Blockchain Explorer](https://ghostnet.tzkt.io/)
 6. [Tezos Smart Rollups Resources](https://airtable.com/shrvwpb63rhHMiDg9/tbl2GNV1AZL4dkGgq)
 7. [Tezos Testnets](https://teztnets.xyz/)
-8. [Origination of Installer Kernel](https://tezos.stackexchange.com/questions/4784/how-to-originating-a-smart-rollup-with-an-installer-kernel/5794#5794)
+8. [Origination of the Installer Kernel](https://tezos.stackexchange.com/questions/4784/how-to-originating-a-smart-rollup-with-an-installer-kernel/5794#5794)
 9. [Docker Documentation](https://docs.docker.com/get-started/)
