@@ -31,7 +31,11 @@ In this tutorial, `Rust` is used as the programming language for the kernel due 
 
 Prerequisites for developing kernels are `cargo` and a `Rust` compiler with `WebAssembly` support (e.g. `wasm32-unknown-unknown` target).
 
-We propose using `rustup` for this purpose, by following this [installation tutorial](https://www.rust-lang.org/tools/install).
+We propose using `rustup` for this purpose, by following this [installation tutorial](https://www.rust-lang.org/tools/install):
+
+```bash!
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
 
 ### 2.3. `Clang` + `LLVM`
 
@@ -164,22 +168,7 @@ The most important item is the `hello_world_kernel.wasm` which is our readily co
 
 ## 3. Getting `Octez`
 
-You need the `Octez` binaries to test locally and deploy a Smart Rollup kernel.
-
-`Octez` is distributed in multiple ways. Most convenient to you may be these:
-
-- Container Images ([`Docker`](https://hub.docker.com/r/tezos/tezos/) or [`Podman`](https://podman.io/))
-- [`OPAM`](https://tezos.gitlab.io/introduction/howtoget.html#building-from-sources-via-opam)
-- [`nix-shell`](https://nixos.org/download.html)
-
-In this tutorial, we strongly encourage trying with the first option. The `OPAM` option only applies to developers who are familiar with the tool, and the `nix-shell` option might require more time to be properly set up than the first two.
-
-You have the option to install one of the popular tools for interacting with container images:
-
-- [Docker](https://www.docker.com/)
-- [Podman](https://podman.io/)
-
-For this tutorial, we assume you have installed `Docker`. However, you can easily adapt the instructions by replacing `docker` with `podman`.
+You need the `Octez` binaries to test locally and deploy a Smart Rollup kernel. `Octez` is distributed in multiple ways. In this tutorial, we strongly encourage using [Docker](https://www.docker.com/).
 
 The [Octez container images](https://hub.docker.com/r/tezos/tezos/) are automatically generated from the [Tezos GitLab repository](https://gitlab.com/tezos/tezos), ensuring that you can always access the latest version of the `Octez` binaries.
 
@@ -394,7 +383,13 @@ Run the file with:
 ./sandbox_node.sh
 ```
 
-Ignore the "Unable to connect to the node" error, as it only comes one time because the `octez-client` command was used while the node was not yet bootstrapped.
+Ignore the "Unable to connect to the node" error, as it only comes one time because the `octez-client` command was used while the node was not yet bootstrapped. The result should be a permanent loop containing:
+
+<kbd>docker session 1</kbd>
+
+```bash!
+# Injected block at minimal timestamp
+```
 
 Leave that process running. Open a new `Docker` session, which works in the same container named `octez-container`:
 
