@@ -37,22 +37,32 @@ We propose using `rustup` for this purpose, by following this [installation tuto
 
 We need `Clang` for compilation to `WebAssembly`. At minimum version `11` is required. Here are some suggested ways to achieve that, depending on your OS:
 
+#### MacOS
+
 ```bash!
-# With Homebrew
-$ brew install llvm
-$ export CC="$(brew --prefix llvm)/bin/clang"
+brew install llvm
+export CC="$(brew --prefix llvm)/bin/clang"
+```
 
-# On Ubuntu
-$ sudo apt-get install clang-11
-$ export CC=clang-11
+#### Ubuntu
 
-# On Fedora
-$ dnf install clang
-$ export CC=clang
+```bash!
+sudo apt-get install clang-11
+export CC=clang-11
+```
 
-# On Arch Linux
-$ pacman -S clang
-$ export CC=clang
+#### Fedora
+
+```bash!
+dnf install clang
+export CC=clang
+```
+
+#### Arch Linux
+
+```bash!
+pacman -S clang
+export CC=clang
 ```
 
 We do the `export CC` because there are systems, such as various Linux distributions, that don't ship with `Clang` as their default `C/C++` compiler.
@@ -62,7 +72,7 @@ Check that at least version `11` is installed with `$CC --version`.
 Also, ensure that the `clang` you've installed supports the `wasm32` target with:
 
 ```bash!
-$ $CC -print-targets | grep WebAssembly
+$CC -print-targets | grep WebAssembly
 #     wasm32      - WebAssembly 32-bit
 #     wasm64      - WebAssembly 64-bit
 ```
@@ -81,21 +91,31 @@ During development, having the [`WebAssembly Toolkit` (`wabt`)](https://github.c
 
 Most distributions ship a `wabt` package which you can install using:
 
+#### MacOS
+
 ```bash!
-# With Homebrew
-$ brew install wabt
-
-# On Ubuntu
-$ sudo apt install wabt
-
-# On Fedora
-$ dnf install wabt
-
-# On Arch Linux
-$ pacman -S wabt
+brew install wabt
 ```
 
-Then, check that the `wasm-strip` version is at least `1.0.31` (run `wasm-strip --version`). If not, you can download it directly from [here](https://github.com/WebAssembly/wabt/releases/tag/1.0.31), extract files, and then whenever you have to use `wasm-strip`, you can use `.<path_to_wabt_1.0.31>/bin/wasm-strip`, instead.
+#### Ubuntu
+
+```bash!
+sudo apt install wabt
+```
+
+#### Fedora
+
+```bash!
+dnf install wabt
+```
+
+#### Arch Linux
+
+```bash!
+pacman -S wabt
+```
+
+Then, check that the `wasm-strip` version is at least `1.0.31` (with `wasm-strip --version`). If not, you can download it directly from [here](https://github.com/WebAssembly/wabt/releases/tag/1.0.31), extract files, and then whenever you have to use `wasm-strip`, you can use `.<path_to_wabt_1.0.31>/bin/wasm-strip`, instead.
 
 ### 2.5. "Hello, World!" Kernel
 
@@ -129,7 +149,7 @@ cargo build --target wasm32-unknown-unknown
 After building it, you should be able to inspect the produced artifacts.
 
 ```bash!
-$ ls -1 target/wasm32-unknown-unknown/debug
+ls -1 target/wasm32-unknown-unknown/debug
 # build
 # deps
 # examples
@@ -178,20 +198,20 @@ docker run -it --volume $(pwd):/home/tezos/hello-world-kernel --entrypoint /bin/
 At this point, you should observe that the <kbd>"Hello, World!" kernel</kbd> directory is accessible and contains the kernel files previously created.
 
 ```bash!
-$ ls -1 hello-world-kernel
+ls -1 hello-world-kernel
 # same contents as in the repository
 ```
 
 At this stage, you can verify that the container image includes all the required executables:
 
 ```bash!
-$ octez-node --version
+octez-node --version
 # 6fb8d651 (2023-06-05 12:05:17 +0000) (0.0+dev)
-$ octez-smart-rollup-wasm-debugger --version
+octez-smart-rollup-wasm-debugger --version
 # 6fb8d651 (2023-06-05 12:05:17 +0000) (0.0+dev)
-$ octez-smart-rollup-node-alpha --version
+octez-smart-rollup-node-alpha --version
 # 6fb8d651 (2023-06-05 12:05:17 +0000) (0.0+dev)
-$ octez-client --version
+octez-client --version
 # 6fb8d651 (2023-06-05 12:05:17 +0000) (0.0+dev)
 ```
 
@@ -273,7 +293,10 @@ It is important to understand that the **shared rollup inbox** has at each level
 You will notice that the behavior aligns with the expectations. You can also experiment with a non-empty input, such as `two_inputs.json`:
 
 ```bash!
-$ octez-smart-rollup-wasm-debugger target/wasm32-unknown-unknown/debug/hello_world_kernel.wasm --inputs two_inputs.json
+octez-smart-rollup-wasm-debugger target/wasm32-unknown-unknown/debug/hello_world_kernel.wasm --inputs two_inputs.json
+```
+
+```bash!
 > step inbox
 # Loaded 2 inputs at level 0
 # Hello, kernel!
@@ -297,16 +320,16 @@ The origination process is similar to that of smart contracts. To originate a sm
 Regrettably, the size of the `.wasm` file is currently too large:
 
 ```bash!
-$ du -h target/wasm32-unknown-unknown/debug/hello_world_kernel.wasm 
+du -h target/wasm32-unknown-unknown/debug/hello_world_kernel.wasm 
 # 17.3M target/wasm32-unknown-unknown/debug/hello_world_kernel.wasm
 ```
 
 To address this, we can use `wasm-strip`, a tool designed to reduce the size of kernels. It accomplishes this by removing unused parts of the `WebAssembly` module (e.g. dead code), which are not required for the execution of the rollups.
 
 ```bash!
-$ wasm-strip target/wasm32-unknown-unknown/debug/hello_world_kernel.wasm 
+wasm-strip target/wasm32-unknown-unknown/debug/hello_world_kernel.wasm 
 
-$ du -h target/wasm32-unknown-unknown/debug/hello_world_kernel.wasm
+du -h target/wasm32-unknown-unknown/debug/hello_world_kernel.wasm
 # 532.0K target/wasm32-unknown-unknown/debug/hello_world_kernel.wasm
 ```
 
@@ -345,7 +368,7 @@ This command creates the following:
 Notice the reduced dimensions of the installer kernel:
 
 ```bash!
-$ du -h hello_world_kernel_installer.hex
+du -h hello_world_kernel_installer.hex
 # 36.0K hello_world_kernel_installer.hex
 ```
 
@@ -381,7 +404,7 @@ docker exec -it octez-container /bin/sh
 To check that the network has the correctly configured protocol:
 
 ```bash!
-$ octez-client rpc get /chains/main/blocks/head/metadata | grep protocol
+octez-client rpc get /chains/main/blocks/head/metadata | grep protocol
 
 # "protocol": "ProtoALphaALphaALphaALphaALphaALphaALphaALphaDdp3zK",
 # "next_protocol": "ProtoALphaALphaALphaALphaALphaALphaALphaALphaDdp3zK"
@@ -394,7 +417,7 @@ You are now ready for the Smart Rollup origination process.
 To originate a smart rollup using the `hello_world_kernel_installer` created above:
 
 ```bash!
-$ octez-client originate smart rollup "test_smart_rollup" from "bootstrap1" of kind wasm_2_0_0 of type bytes with kernel file:hello-world-kernel/hello_world_kernel_installer.hex --burn-cap 3
+octez-client originate smart rollup "test_smart_rollup" from "bootstrap1" of kind wasm_2_0_0 of type bytes with kernel file:hello-world-kernel/hello_world_kernel_installer.hex --burn-cap 3
      
 # > Node is bootstrapped.
 # ...
@@ -422,7 +445,7 @@ Leave this running as well, and open another `Docker` session, as already explai
 Each time a block is baked, a new "Hello, kernel!" message should appear in the `hello_kernel.debug` file:
 
 ```bash!
-$ tail -f hello_kernel.debug 
+tail -f hello_kernel.debug 
 # Hello, kernel!
 # Got message: Internal(StartOfLevel)
 # Got message: Internal(InfoPerLevel(InfoPerLevel { predecessor_timestamp: 2023-06-07T15:31:09Z, predecessor: BlockHash("BLQucC2rFyNhoeW4tuh1zS1g6H6ukzs2DQDUYArWNALGr6g2Jdq") }))
