@@ -95,7 +95,7 @@ $ dnf install wabt
 $ pacman -S wabt
 ```
 
-Then, check that the `wasm-strip` version is at least `1.0.31`. If not, you can download it directly from [here](https://github.com/WebAssembly/wabt/releases/tag/1.0.31), extract files, and then whenever you have to use `wasm-strip`, you can use `.<path_to_wabt_1.0.31>/bin/wasm-strip`, instead.
+Then, check that the `wasm-strip` version is at least `1.0.31` (run `wasm-strip --version`). If not, you can download it directly from [here](https://github.com/WebAssembly/wabt/releases/tag/1.0.31), extract files, and then whenever you have to use `wasm-strip`, you can use `.<path_to_wabt_1.0.31>/bin/wasm-strip`, instead.
 
 ### 2.5. "Hello, World!" Kernel
 
@@ -114,13 +114,13 @@ Now, ensure that you have `rust` version (run `cargo --version`) at least `1.66.
 rustup override set 1.66.0
 ```
 
-With `rustup`, one can enable `WASM` as a compilation target using the following:
+With `rustup`, you have to enable `WASM` as a compilation target using the following:
 
 ```bash!
 rustup target add wasm32-unknown-unknown
 ```
 
-You can immediately build using:
+You can now immediately build using:
 
 ```bash!
 cargo build --target wasm32-unknown-unknown
