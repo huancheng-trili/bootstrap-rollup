@@ -172,6 +172,8 @@ You need the `Octez` binaries to test locally and deploy a Smart Rollup kernel.
 - `OPAM`
 - Nix Shell
 
+In this tutorial, we strongly encourage trying with the first option. The `OPAM` option only applies to developers who are familiar with the tool, and the `nix-shell` option might require more time to be properly set up than the first two.
+
 ### 3.1. Container Images
 
 You have the option to install one of the popular tools for interacting with container images:
