@@ -169,7 +169,7 @@ You need the `Octez` binaries to test locally and deploy a Smart Rollup kernel.
 `Octez` is distributed in multiple ways. Most convenient to you may be these:
 
 - Container Images ([`Docker`](https://hub.docker.com/r/tezos/tezos/) or [`Podman`](https://podman.io/))
-- `OPAM` (`opam install octez`)
+- `OPAM`
 - Nix Shell
 
 ### 3.1. Container Images
@@ -199,7 +199,7 @@ At this point, you should observe that the <kbd>"Hello, World!" kernel</kbd> dir
 
 ```bash!
 ls -1 hello-world-kernel
-# same contents as in the repository
+# same contents as in the hello-world-kernel repository
 ```
 
 At this stage, you can verify that the container image includes all the required executables:
@@ -259,7 +259,9 @@ Let us start from a trivial inbox, which is stored in the `empty_input.json` fil
 
 ```bash!
 cd hello-world-kernel
+```
 
+```bash!
 octez-smart-rollup-wasm-debugger target/wasm32-unknown-unknown/debug/hello_world_kernel.wasm --inputs empty_input.json
 ```
 
