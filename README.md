@@ -232,7 +232,7 @@ cd hello-world-kernel
 <kbd>docker session 1</kbd>
 
 ```bash!
-octez-smart-rollup-wasm-debugger target/wasm32-unknown-unknown/debug/hello_world_kernel.wasm --inputs empty_input.json
+octez-smart-rollup-wasm-debugger --kernel target/wasm32-unknown-unknown/debug/hello_world_kernel.wasm --inputs empty_input.json
 ```
 
 Now you are in **debugging** mode, which is very well documented and explained in the [documentation](https://tezos.gitlab.io/alpha/smart_rollups.html#testing-your-kernel). Similar to how the rollup awaits internal messages from Layer 1 or external sources, the debugger also waits for inputs.
@@ -269,7 +269,7 @@ You will notice that the behavior aligns with the expectations. You can also exp
 <kbd>docker session 1</kbd>
 
 ```bash!
-octez-smart-rollup-wasm-debugger target/wasm32-unknown-unknown/debug/hello_world_kernel.wasm --inputs two_inputs.json
+octez-smart-rollup-wasm-debugger --kernel target/wasm32-unknown-unknown/debug/hello_world_kernel.wasm --inputs two_inputs.json
 ```
 
 <kbd>docker session 1</kbd>
