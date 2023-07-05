@@ -399,6 +399,8 @@ Leave that process running. Open a new `Docker` session, which works in the same
 docker exec -it octez-container /bin/sh
 ```
 
+It is very important to remember to open a new terminal session and run the command above whenever we mention a "new `Docker` session" or when you see that the <kbd>docker session</kbd> counter has increased.
+
 To check that the network has the correctly configured protocol:
 
 <kbd>docker session 2</kbd>
