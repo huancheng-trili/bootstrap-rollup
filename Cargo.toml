@@ -2,7 +2,7 @@
 name = "hello-world-kernel"
 version = "0.1.0"
 edition = "2021"
-rust-version = "1.66"
+rust-version = "1.73"
 
 [lib]
 crate-type = ["cdylib", "rlib"]
