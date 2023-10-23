@@ -134,10 +134,10 @@ git clone https://gitlab.com/trili/hello-world-kernel.git
 cd hello-world-kernel/
 ```
 
-Now, ensure that you have the `rust` version (run `cargo --version`) at least `1.66.0` installed. Otherwise, run the following:
+Now, ensure that you have the `rust` version (run `cargo --version`) at least `1.73.0` installed. Otherwise, run the following:
 
 ```bash!
-rustup override set 1.66.0
+rustup override set 1.73.0
 ```
 
 With `rustup`, you have to enable `WASM` as a compilation target using the following:
