@@ -9,7 +9,7 @@ octez-node config init --network "sandbox" --rpc-addr localhost --connections 0
 # The --connections option removes the requirement for establishing connections with other nodes.
 # Then, we generate the identity of the node we want to run:
 
-octez-node identity generate
+octez-node identity generate 0
 
 # To start the newly configured node in the background, you will need:
 
@@ -35,7 +35,7 @@ octez-client import secret key activator unencrypted:edsk31vznjHSSpGExDMHYASz45V
 # may not reflect the performance on the actual Mainnet. The necessary data for this can be found in the 
 # `sandbox-parameters.json` file.
 
-octez-client -block genesis activate protocol ProtoALphaALphaALphaALphaALphaALphaALphaALphaDdp3zK with fitness 1 and key activator and parameters /usr/local/share/tezos/alpha-parameters/sandbox-parameters.json
+octez-client -block genesis activate protocol ProtoALphaALphaALphaALphaALphaALphaALphaALphaDdp3zK with fitness 1 and key activator and parameters ./params.json
 # The migration to the alpha protocol requires a manual baking process. In this case, we will create new test accounts 
 # to facilitate this process.
 
@@ -47,7 +47,11 @@ octez-client import secret key bootstrap5 unencrypted:edsk4QLrcijEffxV31gGdN2HU7
 
 # The activation command at the end of the `sandbox_node.sh` file needs to be manually baked.
 
-while octez-client bake for --minimal-timestamp; do sleep 1; done
+for i in $(seq 1 10); do
+    octez-client bake for --minimal-timestamp; sleep 1;
+done
+sleep 10000;
+#while octez-client bake for --minimal-timestamp; do sleep 1; done
 
 # This will continuously bake.
 
